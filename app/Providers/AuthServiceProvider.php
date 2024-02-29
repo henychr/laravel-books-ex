@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-// use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -21,6 +21,17 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Gate::define('owner', function ($user) {
+
+            //could be an array of values with if / else statement returning true or false
+
+            //check the ending of email, returns true/false
+            return substr($user->email, -12) === '@data4you.cz';
+        });
+
+        Gate::define('admin', function ($user) {
+
+            return $user->isAdmin == 1; //se musi jeste udelat sloupec s definici kdo je admin
+        });
     }
 }

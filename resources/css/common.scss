@@ -1,0 +1,27 @@
+.highlighted {
+    color: red;
+}
+
+h1 {
+    color: orange;
+}
+
+h3 {
+    color: grey;
+}
+
+p {
+    color: blue;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.facts {
+    text-align: center;
+}
