@@ -1,6 +1,8 @@
-@extends('layouts.main')
+{{-- @extends('layouts.main', [
+    'current_page' => 'login'    
+])
 
-@section('content')
+@section('content') --}}
 
 
 @if (count($errors) > 0)

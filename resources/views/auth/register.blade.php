@@ -1,6 +1,8 @@
-@extends('layouts.main')
+{{-- @extends('layouts.main', [
+    'current_page' => 'logout'    
+])
 
-@section('content')
+@section('content') --}}
 
 
 @if (count($errors) > 0)
@@ -31,4 +33,4 @@
 </form>
 
 
-@endsection
+{{-- @endsection --}}

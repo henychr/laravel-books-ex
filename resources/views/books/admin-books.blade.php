@@ -7,6 +7,7 @@
 
 @section('content_admin_books')
 
+
 @include('common/search')
 
 

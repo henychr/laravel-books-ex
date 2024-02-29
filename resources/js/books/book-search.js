@@ -7,7 +7,7 @@ searchInput.addEventListener("input", async () => {
     // console.log(searchInput.value);
     const response = await fetch('http://www.laravel-books.test/api/books/search?search=' + searchInput.value);
     const data = await response.json();
-    console.log(data[0]);
+
 
     resultSearch.innerHTML = '';
     resultSearch.setAttribute('style', "display:flex;justify-content:center;border:solid;border-color:black")

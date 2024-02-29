@@ -11,6 +11,7 @@
 <body>
    
 @include('common/navigation')
+
 @yield('content')
 @yield('content_index')
 @yield('authors_authors')

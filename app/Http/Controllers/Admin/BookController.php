@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Book;
+use App\Models\Review;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -74,5 +75,12 @@ class BookController extends Controller
         $book = Book::findOrFail($book_id);
 
         return view('books.book-detail', compact('book'));
+    }
+
+    public function deleteReview($book_id, $review_id)
+    {
+        Review::findOrFail($review_id)
+            ->delete();
+        return redirect()->back();
     }
 }

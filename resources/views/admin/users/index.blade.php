@@ -1,4 +1,6 @@
-@extends('layouts.main')
+@extends('layouts.main', [
+    'current_page' => 'users'    
+])
 
 @section('content')
 

@@ -1,5 +1,7 @@
 @viteReactRefresh
-@extends('layouts.main')
+@extends('layouts.main', [
+    'current_page' => 'book-detail'    
+])
 
 
 @section('content')
@@ -37,7 +39,7 @@
 
 
 
-
+@if(Auth::check())
 <div class="reviews" >
 
     <h3>Book reviews</h3>
@@ -46,11 +48,19 @@
 
     <div class ="review" style="">
                <li class="book-review">ID{{$review->id}} {{$review->text}}</li>
-    </div>
+    @can('admin')    
+        <form action="/admin/books/{{$book->id}}/reviews/{{$review->id}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button>Delete ugly review</button>
+        </form>
+        @endcan
+        </div>
+
+
     @endforeach
 
 </div>
-
-
+@endif
     
 @endsection

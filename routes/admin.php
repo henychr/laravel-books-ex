@@ -19,3 +19,5 @@ Route::get('/admin/books/{book_id}', [BookController::class, 'edit']); //edit bo
 Route::put('/admin/books/{book_id}', [BookController::class, 'update']); //update book
 Route::get('/admin/book/{book_id}', [BookController::class, 'show']); //show book details
 Route::get('/admin/users', [UserController::class, 'index']); //show users
+
+Route::delete('/admin/books/{book_id}/reviews/{review_id}', [BookController::class, 'deleteReview'])->middleware('can:admin'); //delete review
