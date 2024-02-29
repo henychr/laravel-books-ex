@@ -8,10 +8,11 @@ export default defineConfig({
     plugins: [
         laravel({
             input: ['resources/css/app.css',
-             'resources/css/common.scss',
-              'resources/js/latest-books.js', 
-              'resources/js/user-list/main.jsx', 
-              'resources/js/app.js'],
+                'resources/css/common.scss',
+                'resources/js/latest-books.js',
+                'resources/js/user-list/main.jsx',
+                'resources/js/books/book-search.js',
+                'resources/js/app.js'],
             refresh: true,
         }),
         react()

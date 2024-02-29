@@ -19,8 +19,6 @@ const loadData = async () => {
     });
 
 
-
-
 }
 
 loadData();

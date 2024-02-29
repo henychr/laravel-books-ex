@@ -7,7 +7,7 @@
 
 @section('content_admin_books')
 
-{{-- {{dd($books)}}; --}}
+@include('common/search')
 
 
 <div class="books" >

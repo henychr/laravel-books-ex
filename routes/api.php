@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BookController as AdminBookController;
 use App\Http\Controllers\Api\BookController;
 use App\Http\Controllers\Api\TestController;
 use App\Http\Controllers\Api\UserController;
@@ -27,3 +28,4 @@ Route::get('/test/model', [TestController::class, 'modelResponse']);
 Route::get('/test/collection', [TestController::class, 'collectionResponse']);
 Route::get('/books/latest', [BookController::class, 'latest']);
 Route::get('/users', [UserController::class, 'index']);
+Route::get('/books/search', [BookController::class, 'search']);

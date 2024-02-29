@@ -23,7 +23,9 @@ class ReviewController extends Controller
 
         ]);
 
+        $data = $request->all();
 
+        // dd($data);
 
         //checks whether user has already submited review
         $check = Review::query()
@@ -36,18 +38,30 @@ class ReviewController extends Controller
             return redirect('/admin/book/' . $book_id);
         }
 
-        $review_id = Review::insertGetId([
-            'book_id' => $book_id,
-            'user_id' => auth()->user()->id,
-            'text' => $_POST['text'],
+        //    Review::create
 
-        ]);
+        // $review_id = Review::insertGetId([
+        //     'book_id' => $book_id,
+        //     'user_id' => auth()->user()->id,
+        //     'text' => $_POST['text'],
 
-        if (!empty($review_id)) {
+        // ]);
+
+        $review_new = new Review;
+        $review_new->text = $data['text'];
+        $review_new->book_id = $book_id;
+        $review_new->user_id = auth()->user()->id;
+        $review_new->save();
+
+
+
+
+        if (!empty($review_new)) {
             session()->flash('success_message', 'Review saved');
         } else {
             session()->flash('error_message', 'Review not saved');
         }
-        return redirect('/admin/book/' . $book_id);
+        // return redirect('/admin/book/' . $book_id);
+        return redirect()->back();
     }
 }

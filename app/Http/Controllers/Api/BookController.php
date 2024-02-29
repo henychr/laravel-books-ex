@@ -26,4 +26,16 @@ class BookController extends Controller
             ->get();
         return view('index.index', compact('crime_books'));
     }
+
+    public function search(Request $request)
+    {
+        // $search = 'discipline';
+        $search = $request->query('search');
+        $search_result = Book::query()
+            ->where('title', 'like', "%{$search}%")
+            ->orderBy('price', 'desc')
+            ->limit(10)
+            ->get();
+        return $search_result;
+    }
 }
